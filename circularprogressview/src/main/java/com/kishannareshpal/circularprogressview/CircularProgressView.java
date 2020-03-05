@@ -5,16 +5,22 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CircularProgressView extends View {
 
@@ -22,11 +28,18 @@ public class CircularProgressView extends View {
     private int fullWidth, fullHeight;
     private int circle_sweepAngle;
     private float strokeWidth = 12f; // this width will expand +4 with animation. So in the end it's value'll be 12;
+
+    private int[] strokeColorInts; // gradient between two colors.
+
+    // properties
     private StrokePlacement strokePlacement;
+    private boolean isStrokeColorGradient;
+
 
     private RectF strokeOval;
     private Paint main_paint, stroke_paint;
     private ValueAnimator valueAnimator;
+    private LinearGradient gradient;
 
 
     public CircularProgressView(Context context) {
@@ -62,7 +75,8 @@ public class CircularProgressView extends View {
         stroke_paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         stroke_paint.setStrokeCap(Paint.Cap.ROUND);
         stroke_paint.setStyle(Paint.Style.STROKE);
-        stroke_paint.setColor(ContextCompat.getColor(ctx, strokeColor));
+        changeStrokeColor(new int[] {strokeColor}); // initial stroke
+
 
         valueAnimator = ValueAnimator.ofInt(1, 270);
         valueAnimator.setDuration(1500);
@@ -113,6 +127,12 @@ public class CircularProgressView extends View {
         strokeOval.bottom = height - (strokeWidth/2);
 
         strokeWidth = circle_radius * (20.0f / 100.0f); // 25% of the circle_radius.
+        if (isStrokeColorGradient) {
+            gradient = new LinearGradient(circle_sweepAngle, 0, circle_sweepAngle, height, strokeColorInts, null, Shader.TileMode.CLAMP);
+            stroke_paint.setShader(gradient);
+        } else {
+            stroke_paint.setColor(ContextCompat.getColor(ctx, strokeColorInts[0]));
+        }
         stroke_paint.setStrokeWidth(strokeWidth);
 
         // First draw the background
@@ -154,13 +174,10 @@ public class CircularProgressView extends View {
 
     /**
      * Change the stroke color (progress indicator).
-     * @param strokeColor color
+     * @param strokeColorInts color
      */
-    public void setStrokeColor(int strokeColor) {
-        if (stroke_paint != null) {
-            stroke_paint.setColor(strokeColor);
-            invalidate();
-        }
+    public void setStrokeColor(int... strokeColorInts) {
+        changeStrokeColor(strokeColorInts);
     }
 
     /**
@@ -194,6 +211,19 @@ public class CircularProgressView extends View {
             valueAnimator.end();
             invalidate();
         }
+    }
+
+
+
+
+
+    // Private
+    void changeStrokeColor(int[] strokeColorInts) {
+        // If multiple colors are passed, color it as gradient.
+        // If only one color is passed, solid color it.
+        this.strokeColorInts = strokeColorInts;
+        this.isStrokeColorGradient = strokeColorInts.length > 1;
+        invalidate();
     }
 
 

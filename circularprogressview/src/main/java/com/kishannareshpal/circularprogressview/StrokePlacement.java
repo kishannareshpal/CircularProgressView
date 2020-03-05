@@ -1,6 +1,6 @@
 package com.kishannareshpal.circularprogressview;
 
-enum StrokePlacement {
+public enum StrokePlacement {
     INSIDE(0),
     OUTSIDE(1),
     CENTER(2);
