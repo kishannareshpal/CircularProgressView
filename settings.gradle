@@ -1,0 +1,2 @@
+include ':app', ':circularprogressview'
+rootProject.name='Circular Progress View'
