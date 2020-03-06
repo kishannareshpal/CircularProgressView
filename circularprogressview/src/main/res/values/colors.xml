@@ -2,4 +2,5 @@
 <resources>
     <color name="cpv_backgroundColor">#00000000</color>
     <color name="cpv_strokeColor">#000000</color>
+    <color name="cpv_borderColor">#00FFFFFF</color>
 </resources>

@@ -14,10 +14,10 @@ public enum StrokePlacement {
         for (StrokePlacement strokePlacement : values()) {
             if (strokePlacement.id == id) return strokePlacement;
         }
-        throw new IllegalArgumentException("There is no StrokePlacement matching the id: " + id + ". Please check the StrokePlacement values using #values() to find all available ids.");
+        throw new IllegalArgumentException("There is no StrokePlacement matching the id: " + id + ". Please check the StrokePlacement values using #values() method to find all available ids.");
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 }

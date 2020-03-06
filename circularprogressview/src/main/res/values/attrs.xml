@@ -3,13 +3,21 @@
 
     <!-- Circular Progress View custom attributes -->
     <declare-styleable name="CircularProgressView">
+        <attr name="progressType" format="enum">
+            <enum name="indeterminate" value="0"/>
+            <enum name="determinate" value="1"/>
+        </attr>
         <attr name="backgroundColor" format="color" />
+        <attr name="borderColor" format="color" />
         <attr name="progressStrokeColor" format="color" />
         <attr name="progressStrokePlacement" format="enum">
             <enum name="inside" value="0"/>
             <enum name="center" value="1"/>
             <enum name="outside" value="2"/>
         </attr>
+        <attr name="maxDeterminateProgressValue" format="float"/>
+        <attr name="determinateProgressValue" format="float"/>
+        <attr name="determinateProgressValuePercentage" format="float"/>
     </declare-styleable>
 
 
