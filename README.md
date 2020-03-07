@@ -1,4 +1,2 @@
-# CircularProgressView
-A customizable circular progress indicator view for all your android project.
+# Initial page
 
-[Guide TBA]
