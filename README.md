@@ -146,7 +146,7 @@ Add the view to your xml layout file.
     </tr>
   </tbody>
 </table>
-\*It is required when you set either `determinateProgressValue` or `determinateProgressValuePercentage`.
+* It is required when you set either `determinateProgressValue` or `determinateProgressValuePercentage`.
 
 
 
@@ -273,7 +273,7 @@ CircularProgressView cpv = findViewById(R.id.cpv);
 ```
 
 ```java
-// You can color the background, the stroke and the border.
+// You can color the background, the stroke or the border.
 // Multiple colors for gradient.
 int[] gradientColors = new int[] {
     Color.parseColor("#ff9100"), // orange
@@ -291,7 +291,7 @@ cpv.setProgressStrokeColor(gradientColors); // a gradient of red and orange
 ![](.gitbook/assets/fotojet-1-squashed-1.jpg)
 
 ```java
-// For choosing where the progressStroke is placed with:
+// Choose where the progressStroke should be positioned:
 cpv.setStrokePlacement(StrokePlacement.OUTSIDE);
 /* cpv.setStrokePlacement(StrokePlacement.CENTER); */
 /* cpv.setStrokePlacement(StrokePlacement.INSIDE); */
@@ -309,7 +309,7 @@ cpv.setRange(totalBytes);
 // Update the progress using:
 cpv.setProgress(10.0f, true) // 10% of the maximum value of the progress.
 
-// Or if you want to update the progress using a value out of the total.
+// Or if you want to update the progress using a value out of total.
 int downloadedBytes = 1230; // downloaded 1230 bytes out of the total of 349022;
 int p = CircularProgressView.calcProgressValuePercentageOf(downloadedBytes, totalBytes)
 cpv.setProgress(p, true);
