@@ -1,4 +1,10 @@
-# Initial page
+---
+description: >-
+  An easy to use, and highly customisable progress view, that is circular for
+  Android!
+---
+
+# Circular Progress View
 
 ## 🙈 Gif-shots
 
@@ -58,7 +64,6 @@ Add the view to your xml layout file.
       <td style="text-align:left">
         <p><b>Determinate indicators</b> display how long a process will take. They
           should be used when the process completion rate can be detected.</p>
-        <p></p>
         <p><b>Indeterminate indicators</b> express an unspecified amount of wait time.
           They should be used when progress isn&#x2019;t detectable, or if it&#x2019;s
           not necessary to indicate how long an activity will take.</p>
@@ -145,12 +150,7 @@ Add the view to your xml layout file.
       <td style="text-align:left">NO</td>
     </tr>
   </tbody>
-</table>
-* It is required when you set either `determinateProgressValue` or `determinateProgressValuePercentage`.
-
-
-
-### 🥢 Here is a list of all available methods.
+</table> \* It is required when you set either \`determinateProgressValue\` or \`determinateProgressValuePercentage\`. \#\#\# 🥢 Here is a list of all available methods.
 
 <table>
   <thead>
@@ -220,11 +220,9 @@ Add the view to your xml layout file.
         </p>
         <p>Pauses the indeterminate stroke animation to the current position. If <b>hideStroke is true</b> it
           will hide the stroke automatically when paused.</p>
-        <p></p>
         <p><b><code>resumeIndeterminateAnimation()</code></b>
         </p>
         <p>Resumes the paused indeterminate stroke animation.</p>
-        <p></p>
         <p><b><code>toggleIndeterminateAnimation()</code></b>
         </p>
         <p>Toggles the indeterminate animation.</p>
@@ -253,20 +251,16 @@ Add the view to your xml layout file.
         </p>
         <p>Sets the current progress value by the percentage. If <b>animated is true</b> it
           will animate the progress change.</p>
-        <p></p>
         <p><b><code>setProgress(float progressPercentage)</code></b>
         </p>
         <p>Sets the current progress value by the percentage, without animating the
           change.</p>
-        <p></p>
         <p>&#x1F4A1; Use this static method<b><code>(float) calcProgressValuePercentageOf(int value, int maxValue)</code></b>to
           get the progressPercentage.</p>
       </td>
     </tr>
   </tbody>
-</table>
-
-### 🏃🏾‍♂️ Lets see it in action
+</table>### 🏃🏾‍♂️ Lets see it in action
 
 ```java
 CircularProgressView cpv = findViewById(R.id.cpv);
@@ -314,6 +308,4 @@ int downloadedBytes = 1230; // downloaded 1230 bytes out of the total of 349022;
 int p = CircularProgressView.calcProgressValuePercentageOf(downloadedBytes, totalBytes)
 cpv.setProgress(p, true);
 ```
-
-
 
