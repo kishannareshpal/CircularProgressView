@@ -19,8 +19,8 @@ description: >-
 Add the library to the **dependencies { ... }** section of your **app** level `build.gradle` file:
 
 ```groovy
-// Check the badge above to replace the version number :)
-implementation 'com.kishannareshpal:circularprogressview:{version.number}'
+// Check the badge above to replace the version :)
+implementation 'com.kishannareshpal:circularprogressview:<version>'
 ```
 
 ## 🐌 Now, let's get started
