@@ -251,20 +251,6 @@ public class CircularProgressView extends View {
         invalidate();
     }
 
-    private void changeProgressType(ProgressType progressType) {
-        switch (progressType) {
-            case INDETERMINATE:
-                this.progressType = progressType;
-                resumeIndeterminateAnimation();
-                break;
-
-            case DETERMINATE:
-                pauseIndeterminateAnimation(false);
-                this.progressType = progressType;
-                break;
-        }
-    }
-
 
     /**
      * Stops or paused the animation of the indeterminate state stroke.
@@ -341,6 +327,7 @@ public class CircularProgressView extends View {
      * @param animated if the progress should update to the target value with animation.
      *
      * @see #setProgess(float) for setting without the animation.
+     * @see #calcProgressValuePercentageOf(int, int) Use this method for calculating the progressPercentage used here.
      */
     public void setProgress(float progressPercentage, boolean animated) {
         changeProgress(progressPercentage, animated);
@@ -410,6 +397,20 @@ public class CircularProgressView extends View {
             if (determinateValueAnimator != null) determinateValueAnimator.cancel();
             progressSweepAngle = newCircleSweepAngle;
             invalidate();
+        }
+    }
+
+    private void changeProgressType(ProgressType progressType) {
+        switch (progressType) {
+            case INDETERMINATE:
+                this.progressType = progressType;
+                resumeIndeterminateAnimation();
+                break;
+
+            case DETERMINATE:
+                pauseIndeterminateAnimation(false);
+                this.progressType = progressType;
+                break;
         }
     }
 

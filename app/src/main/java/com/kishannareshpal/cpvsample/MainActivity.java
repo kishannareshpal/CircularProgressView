@@ -1,15 +1,12 @@
 package com.kishannareshpal.cpvsample;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.SeekBar;
+
 import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.widget.Button;
-import android.widget.SeekBar;
 
 import com.kishannareshpal.circularprogressview.CircularProgressView;
 import com.kishannareshpal.circularprogressview.ProgressType;
@@ -31,14 +28,16 @@ public class MainActivity extends AppCompatActivity {
         int maxValue = 100;
 
         int[] gradientColors = new int[]{
-                color(R.color.blue_A700),
-                color(R.color.light_blue_A700),
+                Color.parseColor("#ff9100"), // orange
+                Color.parseColor("#ff1744") // red
         };
 
-//        cpv.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_100));
-        cpv.setBorderColor(ContextCompat.getColor(this, R.color.blue_50));
+        cpv.setBackgroundColor(Color.parseColor("#ffcdd2")); // light red
         cpv.setProgressStrokeColor(gradientColors);
-//        cpv.setProgressType(ProgressType.INDETERMINATE);
+        cpv.setStrokePlacement(StrokePlacement.CENTER);
+
+
+
         cpv.setRange(maxValue);
 
         seekBar.setMax(maxValue);
