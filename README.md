@@ -150,7 +150,9 @@ Add the view to your xml layout file.
       <td style="text-align:left">NO</td>
     </tr>
   </tbody>
-</table> \* It is required when you set either \`determinateProgressValue\` or \`determinateProgressValuePercentage\`. \#\#\# 🥢 Here is a list of all available methods.
+</table> \* It is required when you set either `determinateProgressValue` or `determinateProgressValuePercentage`. 
+
+### 🥢 Methods:
 
 <table>
   <thead>
