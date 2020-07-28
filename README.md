@@ -19,8 +19,8 @@ description: >-
 Add the library to the **dependencies { ... }** section of your **app** level `build.gradle` file:
 
 ```groovy
-// Check the badge above to replace the version number :)
-implementation 'com.kishannareshpal:circularprogressview:{version.number}'
+// Check the badge above to replace the version :)
+implementation 'com.kishannareshpal:circularprogressview:<version>'
 ```
 
 ## 🐌 Now, let's get started
@@ -150,7 +150,9 @@ Add the view to your xml layout file.
       <td style="text-align:left">NO</td>
     </tr>
   </tbody>
-</table> \* It is required when you set either \`determinateProgressValue\` or \`determinateProgressValuePercentage\`. \#\#\# 🥢 Here is a list of all available methods.
+</table> \* It is required when you set either `determinateProgressValue` or `determinateProgressValuePercentage`. 
+
+### 🥢 Methods:
 
 <table>
   <thead>
