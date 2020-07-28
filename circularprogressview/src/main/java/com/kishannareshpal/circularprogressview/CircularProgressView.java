@@ -144,13 +144,14 @@ public class CircularProgressView extends View {
         super.onDraw(canvas);
 
         // get the size
-        int width = fullWidth - getPaddingLeft() - getPaddingRight();
-        int height = fullWidth - getPaddingTop() - getPaddingBottom();
+        // make sure the the layout_width and layout_height are specified with the same size on booth. E.g: width: 24dp - height: 24dp
+        float width = fullWidth - getPaddingLeft() + getPaddingRight() - 2f; // added -2f to prevent corner overlap
+        float height = fullHeight - getPaddingTop() + getPaddingBottom() - 2f; // added -2f to prevent corner overlap
 
-        float cx            = fullWidth / 2; // The x-coordinate of the center of the main circle to be drawn
-        float cy            = fullHeight / 2; // The y-coordinate of the center of the main circle to be drawn
-        float circle_radius = width / 2; // the main circle radius.
-        this.strokeWidth = circle_radius * (30.0f / 100.0f); // 30% of the circle_radius.
+        float cx            = (width / 2); // The x-coordinate of the center of the main circle to be drawn
+        float cy            = (height / 2); // The y-coordinate of the center of the main circle to be drawn
+        float circle_radius = (width / 2); // the main circle radius.
+        this.strokeWidth = (circle_radius * (30.0f / 100.0f)); // 30% of the circle_radius.
 
         // First draw the background
         switch (strokePlacement) {
@@ -160,7 +161,7 @@ public class CircularProgressView extends View {
                 break;
 
             case OUTSIDE:
-                circle_radius -= strokeWidth - 1; // i've added -1 because it was showing a thin white pixel on the circle edges while indicator was rotating.
+                circle_radius -= strokeWidth;
                 break;
 
             case CENTER:
@@ -211,7 +212,7 @@ public class CircularProgressView extends View {
     }
 
 
-    /** Setter Methods **/
+    /* Setter Methods */
     /**
      * Change the main circle color.
      * @param backgroundColor color
