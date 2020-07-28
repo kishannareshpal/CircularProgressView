@@ -72,9 +72,9 @@ public class CircularProgressView extends View {
         strokeOval = new RectF();
 
         TypedArray ta = ctx.obtainStyledAttributes(attributeSet, R.styleable.CircularProgressView);
-        this.backgroundColor = ta.getResourceId(R.styleable.CircularProgressView_backgroundColor, ContextCompat.getColor(ctx, R.color.cpv_backgroundColor)); // transparent
-        this.progressStrokeColorInts = new int[] { ta.getResourceId(R.styleable.CircularProgressView_progressStrokeColor, ContextCompat.getColor(ctx, R.color.cpv_strokeColor))}; // black
-        this.borderColor = ta.getResourceId(R.styleable.CircularProgressView_borderColor, ContextCompat.getColor(ctx, R.color.cpv_borderColor)); // transparent
+        this.backgroundColor = ta.getColor(R.styleable.CircularProgressView_backgroundColor, ContextCompat.getColor(ctx, R.color.cpv_backgroundColor)); // transparent
+        this.progressStrokeColorInts = new int[] { ta.getColor(R.styleable.CircularProgressView_progressStrokeColor, ContextCompat.getColor(ctx, R.color.cpv_strokeColor))}; // black
+        this.borderColor = ta.getColor(R.styleable.CircularProgressView_borderColor, ContextCompat.getColor(ctx, R.color.cpv_borderColor)); // transparent
         this.strokePlacement = StrokePlacement.fromId(ta.getInt(R.styleable.CircularProgressView_progressStrokePlacement, StrokePlacement.INSIDE.getId()));
         this.progressType = ProgressType.fromId(ta.getInt(R.styleable.CircularProgressView_progressType, ProgressType.INDETERMINATE.getId()));
         if (ta.hasValue(R.styleable.CircularProgressView_determinateProgressValue) || ta.hasValue(R.styleable.CircularProgressView_determinateProgressValuePercentage)) {
